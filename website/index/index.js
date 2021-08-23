@@ -18,7 +18,7 @@ $(document).ready(function() {
 				};
 			});
 		})();
-
+		// 构造Language下拉列表，默认是typescript
 		var startModeIndex = 0;
 		for (var i = 0; i < MODES.length; i++) {
 			var o = document.createElement('option');
@@ -29,11 +29,14 @@ $(document).ready(function() {
 			$(".language-picker").append(o);
 		}
 		$(".language-picker")[0].selectedIndex = startModeIndex;
+
+		// 加载对应类型的示例代码
 		loadSample(MODES[startModeIndex]);
 		$(".language-picker").change(function() {
 			loadSample(MODES[this.selectedIndex]);
 		});
 
+		// 监听主题下拉列表的变化
 		$(".theme-picker").change(function() {
 			changeTheme(this.selectedIndex);
 		});
