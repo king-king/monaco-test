@@ -6,6 +6,7 @@ var editor = null, diffEditor = null;
 
 $(document).ready(function() {
 	require(['vs/editor/editor.main'], function () {
+		// 获取当前支持的语言
 		var MODES = (function() {
 			var modesIds = monaco.languages.getLanguages().map(function(lang) { return lang.id; });
 			modesIds.sort();
