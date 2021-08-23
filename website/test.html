@@ -1,8 +1,16 @@
 <html>
 
-<head></head>
+<head>
+    <style>
+        #editor {
+            width: 700px;
+            height: 400px;
+        }
+    </style>
+</head>
 
 <body>
+    <div id="editor"></div>
     <script>
         var require = {
             paths: {
@@ -15,7 +23,15 @@
     <script src="../min/vs/editor/editor.main.js"></script>
     <script>
         require(['vs/editor/editor.main'], function () {
-            console.log(monaco.languages.getLanguages());
+            // "javascript"
+            const editor = monaco.editor.create(document.getElementById('editor'), {
+                model: null
+            });
+            const newModel =
+                monaco.editor.createModel(
+                    `alert('hello');\nalert('hello');\nalert('hello');\nalert('hello');\nalert('hello')`,
+                    "javascript");
+            editor.setModel(newModel);
         })
     </script>
 </body>

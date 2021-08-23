@@ -104,6 +104,7 @@ function loadSample(mode) {
 			return;
 		}
 
+		// 如果没有渲染过，则create
 		if (!editor) {
 			$('#editor').empty();
 			editor = monaco.editor.create(document.getElementById('editor'), {
